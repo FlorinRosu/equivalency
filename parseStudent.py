@@ -23,7 +23,7 @@ def parseFromXls(fileName):
     idxHPrac = 7 #and 8 and 9 
     idxGrade = 10 #and 12 
     idxCredit = 13 #and 15 
-    idxSem = 17
+    idxSem = 17 # or 18
 
     while i< nRow:
         startRow = i
@@ -46,6 +46,14 @@ def parseFromXls(fileName):
                 strIndex = text.find("Programul de studii")
                 strIndex = text.find(":",strIndex)+2
                 s._profile = text[strIndex:text.find("\n", strIndex)]
+                if "limba engl" in s._profile:
+                    idxName = 3 
+                    idxHLec = 7 
+                    idxHPrac = 8 #and 8 and 9 
+                    idxGrade = 11 #and 12 
+                    idxCredit = 14 #and 15 
+                    idxSem = 18 # or 18
+
 
         for j in range(nCol):
             if ("Disciplina de" in str(sheet.cell_value(i,j))):
@@ -65,11 +73,11 @@ def parseFromXls(fileName):
                 #print(sheet.cell_value(i, idxName), sheet.cell_value(i, idxGrade), sheet.cell_value(i, idxGrade+1))
                 grade = "0"
                 sem = sheet.cell_value(i, idxSem)
+                deltaIDX_FOR_grade_credit = 0
                 if sem == "II":
-                    idxGrade = 12
-                    idxCredit = 15
+                    deltaIDX_FOR_grade_credit = 2
 
-                grade = str(sheet.cell_value(i, idxGrade))
+                grade = str(sheet.cell_value(i, idxGrade+deltaIDX_FOR_grade_credit))
                 if (grade.isnumeric() or grade == "P"):
                     print("OK")
                 else:
@@ -85,7 +93,7 @@ def parseFromXls(fileName):
                     nrHPrac = sheet.cell_value(i, idxHPrac + j)
                     if (str(nrHPrac).isnumeric()):
                         break
-                credit = sheet.cell_value(i, idxCredit)
+                credit = sheet.cell_value(i, idxCredit + deltaIDX_FOR_grade_credit)
                 l = Lecture(name, year, sem, nrHLec, nrHPrac, grade, credit)
                 s._listLecture.append(l) 
 

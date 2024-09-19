@@ -6,10 +6,10 @@ from parseStudent import parseFromPdf
 from studentData import Lecture
 
 #student = parseFromPdf("")
-student = parseFromXls("inputFile/Szekely.xls")
+student = parseFromXls("inputFile/SOLNOC.xls")
 print(student)
 
-parser = parseTemplate("Template/5. Reinmatriculare.docx")
+parser = parseTemplate("inputFile/5. Reinmatriculare.docx")
 lecturesToBeEqui = parser.getListOfLectures() 
 
 print("STUDENT LECTURE")

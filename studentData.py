@@ -67,11 +67,11 @@ class Lecture:
         self._nrHPrac = nrHPrac
         self._grade = grade
         self._credit = credit
-        self._name = self._name.replace("ș", "ş")        
-        self._name = self._name.replace("ț", "ţ")        
         self.generateID()
     def generateID(self):
         lectureName = self._name
+        lectureName = lectureName.replace("ș", "ş")        
+        lectureName = lectureName.replace("ț", "ţ")        
         if " / " not in lectureName:
             if "(" in lectureName:
                 lectureName = lectureName[:lectureName.find("(")-1]
