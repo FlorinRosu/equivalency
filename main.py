@@ -10,8 +10,9 @@ from studentData import Lecture
 listOfStudents = [fileName for fileName in os.listdir("./inputFile/") if ".xls" in fileName]
 print (listOfStudents)
 
-listOfStudents = ["BRAT.xls"]
-for studentFile in listOfStudents:
+#listOfStudentsToCheck = [listOfStudents[2]]
+listOfStudentsToCheck = listOfStudents
+for studentFile in listOfStudentsToCheck:
     student = parseFromXls("inputFile/"+ studentFile)
     print(student)
     
@@ -37,3 +38,4 @@ for studentFile in listOfStudents:
         print(noteq)
     
     parser.writeDocument(student, equivalencyPairs, notEquivalent)
+    print ("DONE for ", student._name)

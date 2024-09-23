@@ -9,6 +9,7 @@ class parseTemplate():
     _fileName = ""
     def __init__(self,fileName):
         self._fileName = fileName
+        self._listOfLecture = []
         self.readListOfLectures()
     def getListOfLectures(self):
         return self._listOfLecture
@@ -133,16 +134,19 @@ class parseTemplate():
         tableToUpdate = doc.tables[-2]
         tableToUpdate.style = "TableGrid"
         creditList.append(0)
+        countNr = 1 
         for eq in equivalent:
             if eq[0]._id == "":
                 row = tableToUpdate.add_row()
                 cells = row.cells
                 l = eq[1]
+                cells[0].text = str(countNr)
                 cells[1].text = l._name
                 cells[2].text = str(l._year)
                 cells[3].text = l._sem
                 cells[4].text = l._credit
 
+                countNr = countNr + 1
                 try:
                     creditList[-1] = creditList[-1] + int(eq[1]._credit)
                 except:
@@ -164,6 +168,6 @@ class parseTemplate():
             if text.find("Total credite ECTS echivalate:") != -1:
                 par.text = text + str(creditList[countYear-1])
             if text.find("Nr. total de credite care urmează a fi obținute") != -1:
-                par.text = text[:-3] + str(creditList[-1])
+                par.text = text[:-1] + ": "+str(creditList[-1])
         
         doc.save("./inputFile/" + student._name[:student._name.find(" ")]+ ".docx")

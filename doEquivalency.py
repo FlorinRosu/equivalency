@@ -9,7 +9,7 @@ def getEquivelancy(student, listOfLectures):
     
             if lectToEq._id== lectStudent._id:
                 lectToEq._sem = lectStudent._sem
-                if lectStudent._grade!="-":
+                if lectStudent._grade!="-" and lectStudent._credit != "-":
                     equivalent.append([lectStudent, lectToEq])
                     found = True
                     break

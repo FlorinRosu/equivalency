@@ -79,6 +79,9 @@ def parseFromXls(fileName):
 
                 grade = str(sheet.cell_value(i, idxGrade+deltaIDX_FOR_grade_credit))
                 if (grade.isnumeric() or grade == "P"):
+                    if (grade.isnumeric()):
+                        if int(grade) <5:
+                            grade = "-"
                     print("OK")
                 else:
                     grade = "-"
