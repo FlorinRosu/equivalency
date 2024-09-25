@@ -163,8 +163,9 @@ class parseTemplate():
             if text == "Numărul matricol vechi:":
                 par.text = par.text + student._nr
             if text.find("Anul de studiu _____")!=-1:
-                par.text = student._years[countYear] +";"+" "*30+ text[text.find(";")+1:]
-                countYear = countYear + 1
+                if (countYear < len(student._years)):
+                    par.text = student._years[countYear] +";"+" "*30+ text[text.find(";")+1:]
+                    countYear = countYear + 1
             if text.find("Total credite ECTS echivalate:") != -1:
                 par.text = text + str(creditList[countYear-1])
             if text.find("Nr. total de credite care urmează a fi obținute") != -1:
