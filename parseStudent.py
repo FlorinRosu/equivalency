@@ -25,6 +25,14 @@ def parseFromXls(fileName):
     idxCredit = 14 #and 15 
     idxSem = 18 # or 18
 
+    if False: 
+        idxName = 3 
+        idxHLec = 6 
+        idxHPrac = 7 #and 8 and 9 
+        idxGrade = 10 #and 12 
+        idxCredit = 13 #and 15 
+        idxSem = 17 # or 18
+
     while i< nRow:
         startRow = i
         #parse student name

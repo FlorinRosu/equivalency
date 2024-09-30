@@ -10,8 +10,8 @@ from studentData import Lecture
 listOfStudents = [fileName for fileName in os.listdir("./inputFile/") if ".xls" in fileName]
 print (listOfStudents)
 
-#listOfStudentsToCheck = [listOfStudents[11]]
-listOfStudentsToCheck = listOfStudents
+listOfStudentsToCheck = [listOfStudents[20]]
+#listOfStudentsToCheck = listOfStudents
 for studentFile in listOfStudentsToCheck:
     student = parseFromXls("inputFile/"+ studentFile)
     print(student)
