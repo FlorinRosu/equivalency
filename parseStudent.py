@@ -25,7 +25,7 @@ def parseFromXls(fileName):
     idxCredit = 14 #and 15 
     idxSem = 18 # or 18
 
-    if False: 
+    if True: 
         idxName = 3 
         idxHLec = 6 
         idxHPrac = 7 #and 8 and 9 

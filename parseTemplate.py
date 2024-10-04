@@ -6,6 +6,7 @@ from docx.shared import Inches
 
 class parseTemplate():
     _listOfLecture = []
+    _numberOfYears = 0
     _fileName = ""
     def __init__(self,fileName):
         self._fileName = fileName
@@ -26,6 +27,7 @@ class parseTemplate():
             i=i+1
 
         for i in range(len(tables)-2):
+            self._numberOfYears += 1
             print("TABLE -----------  ")
             countRow = 0
             for row in tables[i].rows:
@@ -48,7 +50,7 @@ class parseTemplate():
     
     def printTableNotEquivalent(self,doc, notEquivalent):
         table = doc.add_table(1, 7)
-        table.style = "TableGrid"
+        #table.style = "TableGrid"
         row = table.rows[0]
         cells = row.cells
         cells[0].text = "Disciplina"
@@ -123,7 +125,7 @@ class parseTemplate():
         creditList = []
         #update table for each year
         for table in doc.tables:
-            if countYear >= student._year:
+            if countYear >= self._numberOfYears:
                 continue
             credit = self.printTableForAYearAndGetCredits(table, equivalent)
 
@@ -132,7 +134,7 @@ class parseTemplate():
 
         #update table for not equivalent
         tableToUpdate = doc.tables[-2]
-        tableToUpdate.style = "TableGrid"
+        #tableToUpdate.style = "TableGrid"
         creditList.append(0)
         countNr = 1 
         for eq in equivalent:
@@ -145,6 +147,7 @@ class parseTemplate():
                 cells[2].text = str(l._year)
                 cells[3].text = l._sem
                 cells[4].text = l._credit
+                cells[5].text = "RECONTRACTARE"
 
                 countNr = countNr + 1
                 try:
@@ -152,6 +155,7 @@ class parseTemplate():
                 except:
                     print("NO CREDIT FOR ",eq[1]._name)
 
+        doc.add_paragraph().text = "Materii promovate dar neechivalate:"
         self.printTableNotEquivalent(doc, notEquivalent)
 
         #print text parragraphs
@@ -160,6 +164,8 @@ class parseTemplate():
             text = par.text
             if text.find("Student/ă:") != -1:
                 par.text = par.text + student._name
+            if text.find("Programul de la care provine:") != -1:
+                par.text = par.text + student._profile
             if text == "Numărul matricol vechi:":
                 par.text = par.text + student._nr
             if text.find("Anul de studiu _____")!=-1:
