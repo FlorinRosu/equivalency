@@ -177,4 +177,4 @@ class parseTemplate():
             if text.find("Nr. total de credite care urmează a fi obținute") != -1:
                 par.text = text[:-1] + ": "+str(creditList[-1])
         
-        doc.save("./inputFile/" + student._name[:student._name.find(" ")]+ ".docx")
+        doc.save(student._dirr + "/" + student._name[:student._name.find(" ")]+ ".docx")

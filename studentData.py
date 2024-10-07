@@ -384,6 +384,7 @@ class Lecture:
         return " ".join([self._id, ":", self._name, "Year" + str(self._year), "Sem"+self._sem, str(self._nrHLec), str(self._nrHPrac), str(self._grade), str(self._credit)])
 
 class StudentData:
+    _dirr = ""
     _name = ""
     _nr = ""
     _profile = ""

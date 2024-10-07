@@ -6,10 +6,11 @@ def parseFromPdf(fileName):
     s = StudentData()
     return s
 
-def parseFromXls(fileName):
+def parseFromXls(dirr, fileName):
     s = StudentData()
+    s._dirr = dirr
 
-    workbook = xlrd.open_workbook(fileName)
+    workbook = xlrd.open_workbook(dirr+"/"+fileName)
     sheet = workbook.sheet_by_index(0)
     nCol = sheet.ncols
     nRow = sheet.nrows
