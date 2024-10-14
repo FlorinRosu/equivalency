@@ -26,7 +26,7 @@ def parseFromXls(dirr, fileName):
     idxCredit = 14 #and 15 
     idxSem = 18 # or 18
 
-    if True: 
+    if False: 
         idxName = 3 
         idxHLec = 6 
         idxHPrac = 7 #and 8 and 9 
@@ -41,6 +41,14 @@ def parseFromXls(dirr, fileName):
             text = str(sheet.cell_value(i,j))
             if "CNP" in text:
                 s._name = text[text.find("Notele ob")+43:text.find("CNP")-1]
+                if "BALAN" in s._name or "SITARU" in s._name or "SZEKELY" in s._name or "RAHMAN" in s._name:
+                    idxName = 3 
+                    idxHLec = 6 
+                    idxHPrac = 7 #and 8 and 9 
+                    idxGrade = 10 #and 12 
+                    idxCredit = 13 #and 15 
+                    idxSem = 17 # or 18
+
         #parse nr matricol
         for j in range(nCol):
             text = str(sheet.cell_value(i,j))
