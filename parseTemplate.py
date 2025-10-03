@@ -129,6 +129,7 @@ class parseTemplate():
                 continue
             credit = self.printTableForAYearAndGetCredits(table, equivalent)
 
+            print("APPEND CREDITS", credit)
             creditList.append(credit)
             countYear = countYear+1
 
@@ -168,9 +169,9 @@ class parseTemplate():
                 par.text = par.text + student._profile
             if text == "Numărul matricol vechi:":
                 par.text = par.text + student._nr
-            if text.find("Anul de studiu _____")!=-1:
+            if text.find("Anul de studiu")!=-1:
                 if (countYear < len(student._years)):
-                    par.text = student._years[countYear] +";"+" "*30+ text[text.find(";")+1:]
+                    #par.text = student._years[countYear] +";"+" "*30+ text[text.find(";")+1:]
                     countYear = countYear + 1
             if text.find("Total credite ECTS echivalate:") != -1:
                 par.text = text + str(creditList[countYear-1])

@@ -24,17 +24,20 @@ for dir in listDirs:
     listOfStudentsToCheck = listOfStudents
     for studentFile in listOfStudentsToCheck:
         student = parseFromXls(currDir,studentFile)
-        print(student)
+
+        print("STUDENT:",student)
         
-        parser = parseTemplate(currDir + "/5. Reinmatriculare.docx")
+        parser = parseTemplate(currDir + "/" + dir + ".docx")
         lecturesToBeEqui = parser.getListOfLectures() 
+
         
-        print("STUDENT LECTURE")
+        print("STUDENT's LECTURES:")
         for l in student._listLecture:
-            print(l)
+            print(l._name)
         print("TO EQ")
         for l in lecturesToBeEqui:
-            print(l)
+            print(l._name)
+        exit
         
         equivalencyPairs = getEquivelancy(student, lecturesToBeEqui) #list of pairs of lectures
         
