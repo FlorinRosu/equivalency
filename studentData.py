@@ -3,12 +3,12 @@ lecturesID = [("Limba","lang1"),
               ("Limba străină 1", "lang1"),
               ("Limbă străină I", "lang1"),
               ("Serbian and Croatian language 1 (facultativa)*", "lang1"),
-#              ("Limbă engleză 1", "lang1"),
-#              (" Limbă engleză   1", "lang1"),
-#              ("Limba engleză 1", "lang1"),
-#             ("Limbă engleză  1", "lang1"),
+              ("Limbă engleză 1", "lang1"),
+              (" Limbă engleză   1", "lang1"),
+              ("Limba engleză 1", "lang1"),
+             ("Limbă engleză  1", "lang1"),
               ("Foreign Language I", "lang1"),
-#              ("English Language I", "lang1"),
+              ("English Language I", "lang1"),
               ("Limba engleză I", "lang1"),
               ("Limba engleză. ", "lang1"),
               ("Limbă germană 1", "lang1"),
@@ -21,7 +21,7 @@ lecturesID = [("Limba","lang1"),
               ("Foreign Language 2 (Spanish, French, German)", "lang2"),
 #              ("English Language 2", "lang2"),
               ("Foreign Language II", "lang2"),
-#              ("English Language II", "lang2"),
+              ("English Language II", "lang2"),
               ("Limba engleză II", "lang2"),
               ("Limba engleză   2", "lang2"),
               ("Limba engleză 2", "lang2"),
@@ -50,7 +50,7 @@ lecturesID = [("Limba","lang1"),
 #              ("English Language  4", "lang4"),
 #              ("English Language IV", "lang4"),
               ("Foreign Language IV", "lang4"),
-#              ("Limba engleză IV", "lang4"),
+              ("Limba engleză IV", "lang4"),
               ("Limba germană  4", "lang4"),
               ("Educaţie fizică 1", "sport1"),
               ("Educatie fizica 1", "sport1"),
@@ -176,7 +176,7 @@ lecturesID = [("Limba","lang1"),
               ("Metode şi practici în informatică", "MPI"),
               ("Methods and Practices in Informatics (MPI)", "MPI"), 
               ("Methods and Practices in Informatics", "MPI"),
-              ("Practice Stage I", "MPI"),
+              #("Practice Stage I", "MPI"),
               ("Stagiu de practică", "MPI"),
               ("Stagiu de practică I", "MPI"),
 
@@ -191,6 +191,7 @@ lecturesID = [("Limba","lang1"),
               ("Web Design", "EWD"),
               ("Visual  Programming", "EWD"),
               ("Programming in assembly language", "EWD"),
+              ("Web Design/Visual Programming", "EWD"),
 
               ("Scriere academică", "ScrA"),
               ("Academic Writing", "ScrA"),
@@ -303,9 +304,13 @@ lecturesID = [("Limba","lang1"),
               ("Introduction to Cybersecurity", "OS PMD"),
 
               ("Stagiu de practică (4 săpt x 6 ore/zi)", "Stagiu"),
+              ("Stagiu  de practică 4 săpt x 6 ore/zi) 120 ore/semestru", "Stagiu"),
               ("Stagiu de practică II", "Stagiu"),
               ("Practice Stage (PS) (4 weeks x 6h /day)", "Stagiu"), 
+              ("Practice Stage (PS) (4 weeks x 6h /day) - 120h", "Stagiu"),
               ("Practice Stage II", "Stagiu"),
+              ("Practice stage in AI", "Stagiu"),
+              ("Practice stage  in AI - 120 h/semester", "Stagiu"),
 
               ("Limbă străină IV", "lang4"),
               ("Foreign Language IV", "lang4"),
@@ -377,12 +382,17 @@ lecturesID = [("Limba","lang1"),
               ("Graphics and User Interfaces", "GUI"),
               ("Numerical Methods (NM)", "NM"),
               ("Numerical Methods", "NM"),
+              ("Numerical methods", "NM"),
 
               ("Security and Cryptography (SC)/Introduction to Deep Learning (IDL)/Software Technologies in Telecommunication (TST)/", "SC"), 
               ("Security and Criptography","SC"),
               ("Network Administration (NA)/Intelligent Systems and Machine Learning (ISML)", "NA"), 
               ("Network Administration", "NA"),
-              
+              ("Security and Cryptography/Graphics and user interfaces", "GUI"),
+
+              ("Al Project", "AI_PROJ"),
+              ("AI project", "AI_PROJ"),
+
               ("Introduction to Neurotehnologies (IN)/Application Development Using .Net Platform (.Net)", "NEURO"), 
               ("Applications Development using .NET platform", "NEURO"),
 
@@ -408,6 +418,163 @@ lecturesID = [("Limba","lang1"),
               ("Tehnologii software în telecomunicaţii", "PCD"),
               ("Advanced Python Programming ( APP)/Distributed and Concurrent Programming (DCP)/Data Compression Algorithms (DCA)", "PCD"), 
               ("Advanced Programming", "PCD"),
+
+              #MASTER
+              ("Research ethics", "RES_ET"),
+              ("Etica cercetării  ", "RES_ET"),
+              ("Etica cercetării", "RES_ET"),
+              ("Etică, integritate şi scriere  academică", "RES_ET"),
+              (" Etică, integritate şi scriere academică", "RES_ET"),
+
+              ("Research practice","RES_PRA"),
+              ("Research Practice","RES_PRA"),
+
+
+              ("Law of communications and new technologies", "LAW"),
+              ("Law of Communications and New Technologies", "LAW"),
+
+
+
+              ("Advanced Logical and Functional Programming / Architectures for Parallel Computing/ Introduction to cybersecurity. Prevention, detection and mitigation techniques/ Operations Research and Optimization", "ALFP_APC"),
+              ("Arhitecturi şi modele de securitate în reţele/Calcul paralel/Extragerea cunoştinţelor din date", "ALFP_APC"),
+              ("Advanced Logical and Functional Programming", "ALFP_APC"),
+              ("Architectures for Parallel Computing", "ALFP_APC"),
+              ("Introduction to cybersecurity. Prevention, detection and mitigation techniques", "ALFP_APC"),
+              ("Extragerea cunoştinţelor din date", "ALFP_APC"),
+              ("Calcul paralel","ALFP_APC"),
+
+              ("Data Analysis in R/ Distributed Methods and Technologies based on XML/ Dynamical Systems in Machine Learning/ Cryptogphy and information security","DAR_DMT"),
+              ("Data Analysis in R","DAR_DMT"),
+              ("Dynamical Systems in Machine Learning","DAR_DMT"),
+              ("Cryptography and Information Security","DAR_DMT"),
+              ("Cryptography and Information security", "DAR_DMT"),
+
+              ("Multi-agent Systems/ Network Security Models and Architectures/ Term Rewriting","MS_NSMA"),
+              ("Prelucrarea volumelor mari de date/Sisteme multi-agent", "MS_NSMA"),
+              ("Prelucrarea volumelor mari de date", "MS_NSMA"),
+              #("Multi-Agent Systems","MS_NSMA"),
+              ("Term Rewriting ","MS_NSMA"),
+              ("Sisteme multi-agent", "MS_NSMA"),
+
+              ("Cloud Security/ Data mining/ Parallel Computing/ Automated Theorem Proving","CS_DM"),
+              ("Parallel Computing","CS_DM"),
+              ("Data Mining","CS_DM"),
+              ("Automated Theorem Proving", "CS_DM"),
+
+
+              ("Special Topics in Artificial Intelligence/ Modeling and Verifying Algorithms in Coq/ DevSecOps/ Big Data Technologies","STAI_MVAC"),
+              ("Special Topics in Artificial Intelligence","STAI_MVAC"),
+              ("Modelling and Verifying Algorithms in Coq", "STAI_MVAC"),
+
+              ("Computer Vision/ Resource Management in Distributed and Parallel Systems/ Neuroscience – Brain Computing Interfaces/ Computer Virusology/ Metaheuristic Algorithms","CV_RMDPS"),
+              ("Algoritmi metaeuristici/Computer Vision", "CV_RMDPS"),
+              ("Algoritmi metaeuristici", "CV_RMDPS"),
+              #("Computer Vision","CV_RMDPS"),
+              ("Neuroscience - Brain Computing Interfaces", "CV_RMDPS"),
+#              ("Security of distributed applications/Computer vision","CV_RMDPS"),
+
+
+              
+              ("Introducere în securitate cibernetică/Analiza datelor utilizând R", "CYBER_R"),
+              ("Analiza datelor utilizând R", "CYBER_R"),
+              ("Introducere în securitate cibernetică", "CYBER_R"),
+
+              ("Security and Intelligence Studies: Concepts, Methods, Thematic Areas", "SIS_CMTA"),
+
+              ("Applications, Approaches and Challenges in Cybersecurity in the Modern Digital era", "AACCMD"), 
+              ("Applications, approaches and challenges in cybersecurity in the modern digital era", "AACCMD"),
+
+              ("Digital Forensics and Data Analysis Techniques in Cybercrime", "CYBER_CRIME"),
+              ("Digital forensics and data analysis techniques in cybercrime", "CYBER_CRIME"),
+
+              ("Security of distributed applications/Computer vision","SDA_CV"),
+              ("Computer Vision", "SDA_CV"),
+              ("Security of Distributed Applications", "SDA_CV"),
+
+              ("Terrorism in the Context of Globalization", "TCG"),
+
+              ("DevSecOps", "DM_DevOps"),
+              ("Data mining/DevSecOps", "DM_DevOps"),
+
+              ("Quality and reliability of software systems/Multi-Agent Systems", "QRSS_MAS"),
+              ("Multi-Agent Systems","QRSS_MAS"),
+
+              ("Common Attack vectors and exploits in cybersecurity", "CAVE_CYBER"),
+              ("Common Attack Vectors and Exploits in Cybersecurity", "CAVE_CYBER"),
+
+              ("Security and sharing of public and private data/Penetration Testing/Cybercrime", "SSPPD_PT"),
+              ("Penetration Testing", "SSPPD_PT"),
+              ("Cybercrime", "SSPPD_PT"),
+
+              ("Machine Learning/Distributed Methods and technologies based on XML", "ML_DMXML"),
+              ("Machine Learning", "ML_DMXML"),
+              
+              ("Financial-banking security/Introduction to quantum computing","FBS_IQC"),
+              ("Financial - banking Security", "FBS_IQC"),
+
+              ("Standards and protocols in cybersecurity", "SP_CYBER"),
+              ("Standards and Protocols in Cybersecurity", "SP_CYBER"),
+
+              ("Professional Practice", "PROF_PRAC"),
+              ("Professional practice", "PROF_PRAC"),
+              
+              ("Computer Virusology","VIRUS"), 
+
+              ("Proiectarea interfeţelor om-maşina", "PIOM"),
+              ("Proiectarea interfeţelor om-maşină", "PIOM"),
+
+              ("Arhitecturi pentru sisteme software", "ARCH_SW"),
+
+              ("Metode distribuite şi tehnologii bazate pe XML/Învăţare automată","MD_IA"),
+              ("Învăţare automată", "MD_IA"),
+
+              ("Arhitecturi dedicate pentru calcul paralel/Cercetări operaţionale şi optimizare", "ADCP_COO"),
+              ("Cercetări operaţionale şi optimizare", "ADCP_COO"),
+              ("Arhitecturi dedicate pentru calcul paralel", "ADCP_COO"),
+
+              ("Practică de specialitate", "PRAC_SPEC"),
+              ("Practica de specialitate I", "PRAC_SPEC"),
+
+
+
+
+
+              ("Text Mining/ Introduction to Quantum Computing/ Penetration testing/ Computational Game Theory/ Algorithm Synthesis and Mathematical Theory Exploration","TM_IQC"),
+              ("Introduction to Quantum Computing","TM_IQC"),
+              ("Algorithm Synthesis and Mathematical Theory Exploration", "TM_IQC"),
+              
+              ("Fundamente de chimie anorganică şi organică/Introducere în programare pentru bioinformatică", "CHIM_BIO"),
+              ("Fundamente de chimie anorganică şi organică", "CHIM_BIO"),
+
+
+              ("Fundamente de genetică/Cercetări operaţionale şi optimizare", "GEN_CER"),
+              ("Fundamente de genetică", "GEN_CER"),
+
+              ("Prelucrarea volumelor mari de date/Instrumente software pentru bioinformatică","BIG_BIO"),
+              #("Prelucrarea volumelor mari de date", "BIG_BIO"),
+
+              ("Metode statistice în epidemiologie/Studii de asociere/Extragerea cunoştinţelor din date", "EPI_DATA"),
+              ("Metode statistice în epidemiologie", "EPI_DATA"),
+
+              ("Analiza reţelelor biologice/Chemoinformatică","BIO_CHEM"),
+
+
+              ("Analiza şi proiectarea sistemelor software", "APSSW"),
+              ("Analiza si proiectarea sistemelor software", "APSSW"),
+
+
+
+              ("Aplicaţii OMICS/Bioinformatica structurală a proteinelor","OMICS_PRO"),
+              ("Aplicaţii OMICS", "OMICS_PRO"),
+
+
+              ("Practică de cercetare", "PRAC_CER"),
+              ("Practica de cercetare", "PRAC_CER"),
+
+
+
+              ("Biostatistica şi programare în R", "PROG_R"),
+              ("Biostatistică şi programare în R", "PROG_R"),
 
 
 
