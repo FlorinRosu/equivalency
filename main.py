@@ -3,6 +3,7 @@ from doEquivalency import getNotEquivalent
 from doEquivalency import getEquivelancy
 from parseTemplate import parseTemplate
 from parseStudent import parseFromXls
+from parseStudent import parseFromXlsx
 from parseStudent import parseFromPdf
 from studentData import Lecture
 
@@ -23,7 +24,10 @@ for dir in listDirs:
     #listOfStudentsToCheck = [listOfStudents[0]]
     listOfStudentsToCheck = listOfStudents
     for studentFile in listOfStudentsToCheck:
-        student = parseFromXls(currDir,studentFile)
+        if studentFile.endswith(".xlsx"):
+            student = parseFromXlsx(currDir,studentFile)
+        else:
+            student = parseFromXls(currDir,studentFile)
 
         print("STUDENT:",student)
         
@@ -33,7 +37,7 @@ for dir in listDirs:
         
         print("STUDENT's LECTURES:")
         for l in student._listLecture:
-            print(l._name)
+            print(l._name, '|', l._grade)
         print("TO EQ")
         for l in lecturesToBeEqui:
             print(l._name)

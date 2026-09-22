@@ -1,6 +1,7 @@
 from studentData import Lecture
 from studentData import StudentData
 import xlrd
+import openpyxl
 
 def parseFromPdf(fileName):
     s = StudentData()
@@ -116,6 +117,115 @@ def parseFromXls(dirr, fileName):
                 credit = sheet.cell_value(i, idxCredit + deltaIDX_FOR_grade_credit)
                 l = Lecture(name, year, sem, nrHLec, nrHPrac, grade, credit)
                 s._listLecture.append(l) 
+
+
+                i = i + 1
+                if i == nRow:
+                    break
+
+        i = i+1
+    s._year = year
+    return s
+
+
+def parseFromXlsx(dirr, fileName):
+    s = StudentData()
+    s._dirr = dirr
+
+    workbook = openpyxl.load_workbook(dirr+"/"+fileName, data_only=True)
+    sheet = workbook.worksheets[0]
+    nCol = sheet.max_column
+    nRow = sheet.max_row
+    year = 0
+
+    # Helper to mimic xlrd's sheet.cell_value(row, col) using 0-based indices.
+    # openpyxl is 1-based and returns None for empty cells, so convert to "".
+    def cell_value(row, col):
+        value = sheet.cell(row=row+1, column=col+1).value
+        if value is None:
+            return ""
+        return value
+
+    i = 0
+
+    #parse lectures
+    idxName = 2 
+    idxHLec = 3 
+    idxHPrac = 4 
+    idxGrade = 5 
+    idxCredit = 7 
+    idxSem = 8
+
+    while i< nRow:
+        startRow = i
+        #parse student name
+        for j in range(nCol):
+            text = str(cell_value(i,j))
+            if "CNP" in text:
+                s._name = text[text.find("Notele ob")+43:text.find("CNP")-1]
+
+        #parse nr matricol
+        for j in range(nCol):
+            text = str(cell_value(i,j))
+            if "Extras din Registrul matricol" in text:
+                strIndex = text.find("nr. matric")
+                strIndex = text.find(":",strIndex)+2
+                s._nr = text[strIndex:text.find("\n",strIndex)]
+        #parse program of study
+        for j in range(nCol):
+            text = str(cell_value(i,j))
+            if "Programul de studii" in text:
+                strIndex = text.find("Programul de studii")
+                strIndex = text.find(":",strIndex)+2
+                s._profile = text[strIndex:text.find("\n", strIndex)]
+                
+
+
+        for j in range(nCol):
+            if ("Disciplina de" in str(cell_value(i,j))):
+                previous = startRow - 1
+                for j in range(nCol):
+                    text = str(cell_value(previous, j))
+                    if "Anul" in text:
+                        s._years.append(text)
+                startRow = i+1
+                break
+        if (startRow == i+1):
+            i = i+2
+            year = year + 1
+            while ("PROMOVAT" not in str(cell_value(i,1))):
+                for j in range(nCol):
+                    print(str(j),cell_value(i,j), end = '|')
+                #print(cell_value(i, idxName), cell_value(i, idxGrade), cell_value(i, idxGrade+1))
+                grade = "0"
+                sem = cell_value(i, idxSem)
+
+                grade = str(cell_value(i, idxGrade))
+                print("GRADE:", grade)
+                try:
+                    gradeInt = int(float(grade))
+                    if gradeInt < 5:
+                        grade = "-"
+                    else:
+                        grade = str(gradeInt)
+                except ValueError:
+                    if grade != "P":
+                        grade = "-"
+                name = cell_value(i, idxName)
+                #print("NAME: idx", idxName, name)
+                toSplit = name.find(" - Echiv")#some names have a suffix " - Echivalat". Remove this
+                if toSplit != -1:
+                    name = name[:toSplit]
+                nrHLec = cell_value(i, idxHLec)
+                nrHPrac = 0
+                for j in range(3):
+                    nrHPrac = cell_value(i, idxHPrac + j)
+                    if (str(nrHPrac).isnumeric()):
+                        break
+                credit = cell_value(i, idxCredit)
+                if (name != "" and name != "Disciplina de"):
+                    l = Lecture(name, year, sem, nrHLec, nrHPrac, grade, credit)
+                    s._listLecture.append(l) 
 
 
                 i = i + 1

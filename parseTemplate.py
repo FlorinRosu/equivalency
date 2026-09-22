@@ -103,10 +103,10 @@ class parseTemplate():
             if l._name == "":
                 continue
             cells[1].text = l._name
-            cells[2].text = l._nrHLec
-            cells[3].text = l._nrHPrac
+            cells[2].text = str(l._nrHLec)
+            cells[3].text = str(l._nrHPrac)
             cells[4].text = l._grade
-            cells[5].text = l._credit
+            cells[5].text = str(l._credit)
             cells[9].text = l._grade
 
 
@@ -161,6 +161,7 @@ class parseTemplate():
 
         #print text parragraphs
         countYear = 0
+        print("creditList:", creditList, "and student._year:", student._year)
         for par in doc.paragraphs:
             text = par.text
             if text.find("Student/ă:") != -1:
@@ -170,7 +171,7 @@ class parseTemplate():
             if text == "Numărul matricol vechi:":
                 par.text = par.text + student._nr
             if text.find("Anul de studiu")!=-1:
-                if (countYear < len(student._years)):
+                if (countYear < student._year):
                     #par.text = student._years[countYear] +";"+" "*30+ text[text.find(";")+1:]
                     countYear = countYear + 1
             if text.find("Total credite ECTS echivalate:") != -1:
