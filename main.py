@@ -73,26 +73,4 @@ for dir in listDirs:
         print ("DONE for ", student._name)
 
 
-#
-#dataExcel = {}
-#max = 0
-#for el in dicForStudents:
-#    if len(dicForStudents[el])>max:
-#        max = len(dicForStudents[el])
-
-#for el in dicForStudents:
-#    id = ' $$ '.join(dicForNames[el])
-#    dataExcel[id] = dicForStudents[el]
-#    toAdd = max - len(dicForStudents[el])
-#    for i in range(toAdd):
-#        dataExcel[id].append("")
-
-#from openpyxl import load_workbook
-#import pandas as pd
-#writer = pd.ExcelWriter('test.xlsx')
-#wb = writer.book
-#df = pd.DataFrame(dataExcel)
-#df.to_excel(writer, index = False)
-#wb.save('test.xlsx')
-
 print("TO CHECK:",toCheck)
