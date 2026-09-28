@@ -6,15 +6,13 @@ from parseStudent import parseFromXls
 from parseStudent import parseFromXlsx
 from parseStudent import parseFromPdf
 from studentData import Lecture
+from manualCheck import manualUpdate
 
 #student = parseFromPdf("")
 inputDirName = "./inputFile/"
 listDirs = os.listdir(inputDirName)
 print(listDirs)
 
-dicForStudents = {}
-dicForNames = {}
-toCheck = []
 
 for dir in listDirs:
     currDir = inputDirName+dir
@@ -47,30 +45,17 @@ for dir in listDirs:
         
         notEquivalent = getNotEquivalent(student, equivalencyPairs) #list of lectures promoted but not equivaled
         
-        print("WHAT HAVE EQ")
-        count = 0
+        print("WHAT HAVE EQUIVALENCY:")
         for eq in equivalencyPairs:
             print(eq[0], "<=>", eq[1])
-            if eq[0]._id == "":
-                count = count+1
-                if eq[1]._id in dicForStudents:
-                    dicForStudents[eq[1]._id].append(student._name)
-                    if (eq[1]._name not in dicForNames[eq[1]._id]):
-                        dicForNames[eq[1]._id].append(eq[1]._name)
-                else:
-                    dicForStudents[eq[1]._id] = [student._name]
-                    dicForNames[eq[1]._id] = [eq[1]._name]
-
-        if count > len(equivalencyPairs) - 3:
-            toCheck.append(student._name)
-
-
-        print("WHAT DOESNT HAVE")
+            
+        
+        print("WHAT DOES'NT HAVE:")
         for noteq in notEquivalent:
             print(noteq)
+
+        if len(notEquivalent) > 0:
+            manualUpdate(equivalencyPairs, notEquivalent)
         
         parser.writeDocument(student, equivalencyPairs, notEquivalent)
         print ("DONE for ", student._name)
-
-
-print("TO CHECK:",toCheck)
